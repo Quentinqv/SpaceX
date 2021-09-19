@@ -1,0 +1,56 @@
+.section
+    width: 100vw
+    height: 100vh
+    padding-bottom: 10rem
+    position: relative
+
+    display: flex
+    justify-content: flex-start
+    align-items: flex-end
+    background-position: center
+    background-size: cover
+
+    .video
+        width: 100vw
+        height: 100vh
+        position: absolute
+        top: 0
+        left: 0
+
+        video
+            object-fit: cover
+
+    div:not(.video)
+        position: relative
+        width: 100%
+        margin: 0 auto
+        max-width: 1400px
+        padding-left: 25px
+
+    &:first-child
+        background-image: url("https://www.spacex.com/static/images/inspiration4/I4_Splashdown_Desktop.webp")
+
+    &:nth-child(2)
+        background-image: url("https://www.spacex.com/static/images/backgrounds-2021/sl29/Homepage_SL_2-1_Desktop.webp")
+
+    &:nth-child(3)
+        background-image: url("https://www.spacex.com/static/images/backgrounds-2021/crs-23/HP_CRS23_causeway_DSC_7027_Desktop.webp")
+
+    &:nth-child(4)
+        background-image: url("https://www.spacex.com/static/images/backgrounds-2021/hls-resized-2.webp")
+    
+    h1
+        @include basic-text($bold: true)
+        font-size: 55px
+        width: 35rem
+        text-shadow: $text-shadow
+        margin-bottom: 50px
+    
+    h2
+        @include basic-text($bold: false)
+        font-size: 20px
+        width: 35rem
+        margin-bottom: 10px
+    
+    p
+        @include basic-text($bold: false)

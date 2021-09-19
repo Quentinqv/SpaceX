@@ -1,0 +1,7 @@
+@mixin basic-text($bold: true)
+    text-transform: uppercase
+    color: $font-color
+    @if $bold == true
+        font-family: "D-DIN-Bold"
+    @else 
+        font-family: "D-DIN"
