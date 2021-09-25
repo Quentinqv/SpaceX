@@ -1,16 +1,47 @@
 #menuTrigger
     display: none
 
+    &:checked ~ .menu__backdrop--active
+        background-color: rgba(0, 0, 0, 0.6)
+        width: 100vw
+        height: 100vh
+
+    &:checked ~ .menu__display--active
+        transform: translateX(0px)
+
+        ul
+            li
+                transform: translateY(0px)
+                opacity: 1
+
+    &:checked + .header__menu--label
+        .header__menu--trigger
+            background-color: transparent
+
+            &::after
+                transform: rotate(-45deg)
+                width: 14px
+            
+            &::before
+                transform: rotate(45deg)
+                width: 14px
+        
+
 .header__menu--label
     display: flex
     align-items: center
     width: 20px
     height: 16px
     cursor: pointer
+    position: absolute
+    z-index: 99
+    top: 48px
+    right: 40px
 
     .header__menu--trigger
         position: relative
         @include trait
+        transition: all 0.3s ease
 
         &::after
             content: ""
@@ -18,6 +49,8 @@
             position: absolute
             @include trait
             top: -5px
+            transform-origin: right
+            transition: all 0.3s ease
 
         &::before
             content: ""
@@ -25,3 +58,53 @@
             position: absolute
             @include trait
             top: 5px
+            transform-origin: right
+            transition: all 0.3s ease
+
+.menu__display--active
+    position: absolute
+    z-index: 98
+    top: 0
+    right: 0
+    padding: 80px 40px 40px 40px
+    background-color: black
+    min-height: 100vh
+    max-height: 100vh
+    width: 350px
+    transform: translateX(350px)
+    transition: all 0.6s ease
+
+    ul
+        display: flex
+        flex-direction: column
+        justify-content: flex-end
+
+        li
+            border-bottom: 1px solid darken($font-color, 85)
+            margin: 0
+            padding-bottom: 10px
+            margin-bottom: 10px
+            width: 100%
+            text-align: right
+            transform: translateY(10px)
+            opacity: 0
+            transition: all 1.3s ease
+
+            a
+                @include basic-text($bold: false)
+                font-size: 16px
+                transition: all 0.3s ease
+                display: block
+
+                &:hover
+                    color: darken($font-color, 50)
+
+.menu__backdrop--active
+    background-color: rgba(0, 0, 0, 0)
+    position: absolute
+    z-index: 97
+    width: 0
+    height: 0
+    top: 0
+    left: 0
+    transition: background-color 0.4s ease

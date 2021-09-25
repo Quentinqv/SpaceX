@@ -99,7 +99,7 @@ header svg {
     margin: auto auto 0 auto;
   }
 }
-header .header__gauche {
+header .header__div__gauche {
   position: relative;
   width: 100%;
   margin: 0 auto;
@@ -107,33 +107,34 @@ header .header__gauche {
   padding-left: 50px;
 }
 @media screen and (max-width: 1100px) {
-  header .header__gauche {
+  header .header__div__gauche {
     padding-left: 0px;
   }
 }
 @media screen and (max-width: 1050px) {
-  header .header__gauche nav {
+  header .header__div__gauche nav {
     display: none;
   }
 }
-header > div {
+header .header__div {
   display: flex;
   align-items: center;
 }
-header > div nav {
+header .header__div > nav {
   height: 100%;
   margin-bottom: -5px;
+  transform: translateX(-20px);
 }
-header > div nav ul {
+header .header__div > nav ul {
   display: flex;
   align-items: flex-end;
   height: 100%;
 }
-header > div nav ul li {
+header .header__div > nav ul li {
   margin: 0 10px;
   position: relative;
 }
-header > div nav ul li::after {
+header .header__div > nav ul li::after {
   content: "";
   position: absolute;
   width: 0;
@@ -145,13 +146,13 @@ header > div nav ul li::after {
   transition: width 0.2s ease;
   -webkit-transition: width 0.2s ease;
 }
-header > div nav ul li:hover::after {
+header .header__div > nav ul li:hover::after {
   background-color: #FFF;
   width: 100%;
   left: 0;
 }
 @media screen and (max-width: 1050px) {
-  header > div nav ul li {
+  header .header__div > nav ul li {
     margin: 0 5px;
   }
 }
@@ -162,6 +163,9 @@ header a {
   text-decoration: none;
   text-transform: uppercase;
   font-size: 14px;
+}
+header .header__div__droite {
+  align-items: flex-end;
 }
 
 .section {
@@ -299,6 +303,29 @@ footer ul a:hover {
 #menuTrigger {
   display: none;
 }
+#menuTrigger:checked ~ .menu__backdrop--active {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100vw;
+  height: 100vh;
+}
+#menuTrigger:checked ~ .menu__display--active {
+  transform: translateX(0px);
+}
+#menuTrigger:checked ~ .menu__display--active ul li {
+  transform: translateY(0px);
+  opacity: 1;
+}
+#menuTrigger:checked + .header__menu--label .header__menu--trigger {
+  background-color: transparent;
+}
+#menuTrigger:checked + .header__menu--label .header__menu--trigger::after {
+  transform: rotate(-45deg);
+  width: 14px;
+}
+#menuTrigger:checked + .header__menu--label .header__menu--trigger::before {
+  transform: rotate(45deg);
+  width: 14px;
+}
 
 .header__menu--label {
   display: flex;
@@ -306,12 +333,17 @@ footer ul a:hover {
   width: 20px;
   height: 16px;
   cursor: pointer;
+  position: absolute;
+  z-index: 99;
+  top: 48px;
+  right: 40px;
 }
 .header__menu--label .header__menu--trigger {
   position: relative;
   background-color: white;
   width: 20px;
   height: 2px;
+  transition: all 0.3s ease;
 }
 .header__menu--label .header__menu--trigger::after {
   content: "";
@@ -321,6 +353,8 @@ footer ul a:hover {
   width: 20px;
   height: 2px;
   top: -5px;
+  transform-origin: right;
+  transition: all 0.3s ease;
 }
 .header__menu--label .header__menu--trigger::before {
   content: "";
@@ -330,6 +364,60 @@ footer ul a:hover {
   width: 20px;
   height: 2px;
   top: 5px;
+  transform-origin: right;
+  transition: all 0.3s ease;
+}
+
+.menu__display--active {
+  position: absolute;
+  z-index: 98;
+  top: 0;
+  right: 0;
+  padding: 80px 40px 40px 40px;
+  background-color: black;
+  min-height: 100vh;
+  max-height: 100vh;
+  width: 350px;
+  transform: translateX(350px);
+  transition: all 0.6s ease;
+}
+.menu__display--active ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.menu__display--active ul li {
+  border-bottom: 1px solid #262626;
+  margin: 0;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: right;
+  transform: translateY(10px);
+  opacity: 0;
+  transition: all 1.3s ease;
+}
+.menu__display--active ul li a {
+  text-transform: uppercase;
+  color: #FFF;
+  font-family: "D-DIN";
+  font-size: 16px;
+  transition: all 0.3s ease;
+  display: block;
+}
+.menu__display--active ul li a:hover {
+  color: gray;
+}
+
+.menu__backdrop--active {
+  background-color: rgba(0, 0, 0, 0);
+  position: absolute;
+  z-index: 97;
+  width: 0;
+  height: 0;
+  top: 0;
+  left: 0;
+  transition: background-color 0.4s ease;
 }
 
 /*# sourceMappingURL=style.css.map */

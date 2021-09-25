@@ -11,7 +11,7 @@
 <body>
     <header>
         <!-- Partie gauche header -->
-        <div class="header__gauche">
+        <div class="header__div header__div__gauche">
             <!-- Logo SVG -->
             <svg version="1.1" x="0px" y="0px" viewBox="0 0 400 50">
                 <title>SpaceX Logo</title>
@@ -55,16 +55,26 @@
         </div>
 
         <!-- Partie droite header -->
-        <div class="header__droite">
+        <div class="header__div header__div__droite">
             <nav>
                 <ul>
                     <li><a href="#">Shop</a></li>
-                    <label class="header__menu--label" for="menuTrigger">
-                        <div class="header__menu--trigger"></div>
-                    </label>
-                    <input type="checkbox" name="menuTrigger" id="menuTrigger">
                 </ul>
             </nav>
+            <input type="checkbox" name="menuTrigger" id="menuTrigger">
+            <label class="header__menu--label" for="menuTrigger">
+                <div class="header__menu--trigger"></div>
+            </label>
+            <label class="menu__backdrop--active" for="menuTrigger"></label>
+            <div class="menu__display--active">
+                <ul>
+                    <li><a href="#">Mission</a></li>
+                    <li><a href="#">Launches</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Updates</a></li>
+                    <li><a href="#">Shop</a></li>
+                </ul>
+            </div>
         </div>
     </header>
     <main>
