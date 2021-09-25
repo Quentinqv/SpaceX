@@ -1,0 +1,27 @@
+#menuTrigger
+    display: none
+
+.header__menu--label
+    display: flex
+    align-items: center
+    width: 20px
+    height: 16px
+    cursor: pointer
+
+    .header__menu--trigger
+        position: relative
+        @include trait
+
+        &::after
+            content: ""
+            display: block
+            position: absolute
+            @include trait
+            top: -5px
+
+        &::before
+            content: ""
+            display: block
+            position: absolute
+            @include trait
+            top: 5px

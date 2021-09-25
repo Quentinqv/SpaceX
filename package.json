@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "sass --watch ./src/css:./public/assets/css --style compressed"
+    "sass": "sass --watch ./src/css:./public/assets/css"
   },
   "author": "VITOUX Quentin",
   "license": "ISC"
